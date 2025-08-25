@@ -324,6 +324,51 @@ div.dark {
 	display: none;
 }
 
+/* task #5 */
+.mouse-monitor {
+  /* position: fixed; */
+  right: 16px;
+  bottom: 16px;
+  background: var(--clr1bg);
+  color: #fff;
+  width: 250px;          /* adjust size */
+  height: 250px;
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  justify-content: center;/* center vertically */
+  align-items: center;    /* center horizontally */
+  padding: 12px;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  text-align: center;
+  border-radius: 10px;    /* optional */
+}
+
+
+.mouse-monitor.paused {
+  opacity: 0.65;           /* subtle visual hint when paused */
+}
+
+.mouse-monitor .row {
+  white-space: nowrap;
+}
+
+.mouse-monitor .toggle-btn {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f1f5f9;
+  color: #111;
+  font-weight: 600;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+
+}
+
+.mouse-monitor .toggle-btn:hover {
+  filter: brightness(0.95);
+}
+
+
 
 @media (max-width: 720px) {
 	.app-header {
