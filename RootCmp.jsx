@@ -5,17 +5,28 @@ import { CountDown } from "./cmps/CountDown.jsx"
 import {SeasonClock} from "./cmps/SeasonClock.jsx"
 import { WatcherApp } from "./cmps/WatcherApp.jsx"
 import { MouseMonitor } from "./cmps/MouseMonitor.jsx"
+const { useState, useEffect } = React
 
-function onDone() {
-    console.log("Done!")
-}
 
 export function RootCmp() {
+        const [animals, setAnimals] = useState([
+        {type: 'Malayan Tiger', count: 787},
+        {type: 'Mountain Gorilla', count: 212},
+        {type: 'Fin Whale', count: 28},
+    ])
+
+
+    function onDone() {
+        console.log("Done!")
+    }
+
+
     return (
         <section className="app main-layout">
             {/* <AppHeader /> */}
             <main>
-                <Home />
+                {/* <Home /> */}
+                <AnimalInfo infoArray={animals} />
                 <SeasonClock />
                 <CountDown
                     startFrom ={10}

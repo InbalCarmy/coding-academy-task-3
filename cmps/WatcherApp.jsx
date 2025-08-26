@@ -78,11 +78,14 @@ export function WatcherApp()  {
             <button onClick ={()=> onAdd()}>Add Watcher</button>
 
             <div className="watchers-list">
-                {selectedWatcher && (<div className={`selected ${isHide}`}>
-                    <h1>{`${selectedWatcher.fullName}`}</h1>
-                    <ul>
-                        {selectedWatcher.movies && selectedWatcher.movies.map(movie =>
-                            <li key={movie}>{movie}</li>
+                {selectedWatcher && 
+                    (<div className={`selected ${isHide}`}>
+                        <h1>{`${selectedWatcher.fullName}`}</h1>
+                        <ul>
+                            
+                        {selectedWatcher.movies && 
+                            selectedWatcher.movies.map(movie =>
+                                <li key={movie}>{movie}</li>
                         )}
                     </ul>
                     <button onClick={() => setSelectedWatcher(null)} >cancel</button>
