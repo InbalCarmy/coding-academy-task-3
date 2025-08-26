@@ -1,8 +1,7 @@
 const { useState, useEffect, useRef } = React
 
 
-export function CountDown({startFrom = 10, onDone = () => {
-    console.log('Done!')}})  {
+export function CountDown({startFrom , onDone})  {
 
     const [timer, setTimer] = useState(startFrom)
     const intervalIdRef = useRef(null)
@@ -10,18 +9,18 @@ export function CountDown({startFrom = 10, onDone = () => {
 
     useEffect(() => {
         intervalIdRef.current = setInterval(() => {
-            setTimer(timer => {
-                if(timer <= 1){
-                    clearInterval(intervalIdRef.current)
-                    onDone()
-                    return 0
-                }
-                return timer - 1
-            })
+            setTimer(timer => timer -1 )
         }, 1000)
 
         return () => clearInterval(intervalIdRef.current)
     }, [])
+
+    useEffect(() => {
+        if(timer <= 0){
+            clearInterval(intervalIdRef.current)
+            if(onDone) onDone()
+        }
+    }, [timer]) 
 
 
     const countClass = (timer < 7) ? 'low' : ''
